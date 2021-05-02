@@ -23,3 +23,4 @@ class AllBlogs(ListView):
 class DetailBlog(DetailView):
     template_name = 'blog/detail.html'
     model = Blog
+

@@ -1,0 +1,19 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+    {%  load static %}
+    <h1> Contact us through email:</h1>
+        <form method="post">
+
+            <div class="form-group form-control-lg col-3 >
+
+                {{form.as_table}}
+                {% csrf_token %}
+                <button class="btn btn-primary" type="submit" value="Save">Submit</button>
+            </div>
+
+        </form>
+
+
+
+{% endblock %}
