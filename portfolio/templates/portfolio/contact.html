@@ -1,7 +1,16 @@
 {% extends 'portfolio/base.html' %}
 {% block content %}
+{%  load static %}
 
-    {%  load static %}
+ {% if messages %}
+     {% for message in messages %}
+         <div class="text-center alert alert-{{ message.tags }}">
+             {{ message|safe }}
+         </div>
+     {% endfor %}
+ {% endif %}
+
+
     <h1> Contact us through email:</h1>
         <form method="post">
 
@@ -9,7 +18,8 @@
 
                 {{form.as_table}}
                 {% csrf_token %}
-                <button class="btn btn-primary" type="submit" value="Save">Submit</button>
+
+                <button class="btn btn-primary" type="submit" value="Save" >Submit</button>
             </div>
 
         </form>
