@@ -1,4 +1,6 @@
 from django.contrib import messages
+from django.urls import reverse_lazy
+
 from .forms import ContactForm
 from .models import Project
 
@@ -20,7 +22,7 @@ class HomeView(ListView):
 class ContactUs(FormView):
     form_class = ContactForm
     template_name = "portfolio/contact.html"
-    success_url = "/contact/"
+    success_url = reverse_lazy('contact')
 
     def form_valid(self, form):
         form.save()
