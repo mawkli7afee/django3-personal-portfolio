@@ -22,3 +22,21 @@ class Contact(models.Model):
     def __str__(self):
         return self.name
 
+
+class Publisher(models.Model):
+    name = models.CharField(max_length=100, null=False, blank=False)
+    country = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+
+class Book(models.Model):
+    title = models.CharField(max_length=100, null=False, blank=False)
+    description = models.TextField(null=False, blank=False)
+    year = models.CharField(max_length=4, null=False, blank=False)
+    publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title

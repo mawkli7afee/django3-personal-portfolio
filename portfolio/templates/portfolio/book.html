@@ -1,0 +1,23 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+{%  load static %}
+
+{% load crispy_forms_tags  %}
+
+ {% if messages %}
+     {% for message in messages %}
+         <div class="text-center alert alert-{{ message.tags }}">
+             {{ message|safe }}
+         </div>
+     {% endfor %}
+ {% endif %}
+
+ <div class="form-group col-md-8" >
+        <h1 class="display-4 ">Add a new book</h1>
+        </div>
+
+
+            {% crispy form %}
+
+
+{% endblock %}

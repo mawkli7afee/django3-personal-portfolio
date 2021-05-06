@@ -1,0 +1,15 @@
+{% extends "portfolio/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<h1 class="text-center mt-5">{{ book.title }}</h1>
+
+<h5 class="text-center text-muted mb-5">{{ book.description }}</h5>
+
+<h5 class="text-center text-muted mb-5">{{ book.year }}</h5>
+
+<h5 class="text-center text-muted mb-5">{{ book.publisher }}</h5>
+
+{% endblock %}

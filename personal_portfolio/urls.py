@@ -19,14 +19,17 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.conf.urls import url
 from portfolio import views
-from portfolio.views import HomeView, ContactUs
+from portfolio.views import HomeView, ContactUs, AddBook, AddPublisher, DetailBooks, AllBooks
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', views.home, name='home'),
     path('', HomeView.as_view(), name='home'),
     path('contact/', ContactUs.as_view(), name='contact'),
+    path('addpublisher/', AddPublisher.as_view(), name='addpublisher'),
+    path('addbook/', AddBook.as_view(), name='addbook'),
     path('blog/', include('blog.urls')),
+    path('all_books/', AllBooks.as_view(), name="all_books"),
+    path('<int:pk>/', DetailBooks.as_view(), name='detailbooks'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
