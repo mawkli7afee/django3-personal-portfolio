@@ -4,25 +4,26 @@
 
 {% block content %}
 
- <div class="form-group col-md-8" >
+    <div class="form-group col-md-8">
         <h1 class="display-4">Books Added:</h1>
+    </div>
+
+    {% for book in books %}
+
+        <div class="col-md-10">
+            <a href="{% url 'detailbooks' book.id %}">
+                <h2>{{ book.title }}</h2>
+            </a>
+            <h6 class="text-muted">{{ book.year }}</h6>
+            <h4>{{ book.publisher }}</h4>
+            <br><br>
         </div>
 
-{% for book in books %}
-
-  <div class="col-md-10">
-    <a href="{% url 'detailbooks' book.id %}">
-      <h2>{{ book.title }}</h2>
-    </a>
-    <h6 class="text-muted">{{ book.year }}</h6>
-    <h4>{{ book.publisher }}</h4>
-   <br><br>
-  </div>
 
 
-
-{% endfor %}
-  <div class="col-md-10">
-    <a class="btn btn-primary" href="{% url 'addbook' %}" >Add a new Book</a>
-</div>
+    {% endfor %}
+    <div class="col-md-10">
+        <a class="btn btn-primary" href="{% url 'addbook' %}">Add a new Book</a>
+    </div>
 {% endblock %}
+
